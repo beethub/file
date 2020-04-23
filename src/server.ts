@@ -20,16 +20,16 @@ const app = new App(4000, [
 ]);
 
 const shutDownTime = 20 * 1000;
-const lightship = createLightship({shutdownHandlerTimeout: shutDownTime});
+const lightship = createLightship({ shutdownHandlerTimeout: shutDownTime });
 
-app.listen().then(server =>{
-  lightship.signalReady(); 
+app.listen().then((server) => {
+  lightship.signalReady();
   lightship.registerShutdownHandler(async () => {
-    await new Promise((resolve, reject) =>{
+    await new Promise((resolve, reject) => {
       setTimeout(() => {
-       resolve 
+        resolve;
       }, shutDownTime);
     });
     server.close();
-  });  
+  });
 });
