@@ -1,0 +1,33 @@
+{
+  "name": "file",
+  "version": "1.0.0",
+  "description": "Microservice for save an get files from the storage",
+  "main": "server.ts",
+  "scripts": {
+    "build": "tsc",
+    "compile": "npm run build && node -r dotenv/config ./dist/server.js",
+    "start": "nodemon -e ts --exec \"npm run dev\"",
+    "dev": "NODE_ENV=DEV ts-node -r dotenv/config ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "author": "Adrian Varela",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.660.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "uuid": "^7.0.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/multer": "^1.4.3",
+    "@types/multer-s3": "^2.7.7",
+    "@types/node": "^13.13.2",
+    "@types/uuid": "^7.0.2",
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.9.0",
+    "typescript": "^3.8.3"
+  }
+}
