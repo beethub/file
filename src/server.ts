@@ -1,5 +1,6 @@
 import App from "./app";
 import StorageController from "./controllers/storageController";
+import { createLightship } from "lightship";
 
 const getEnv = (input: string): string => {
   if (process.env[input]) {
@@ -18,4 +19,17 @@ const app = new App(4000, [
   ),
 ]);
 
-app.listen();
+const shutDownTime = 20 * 1000;
+const lightship = createLightship({shutdownHandlerTimeout: shutDownTime});
+
+app.listen().then(server =>{
+  lightship.signalReady(); 
+  lightship.registerShutdownHandler(async () => {
+    await new Promise((resolve, reject) =>{
+      setTimeout(() => {
+       resolve 
+      }, shutDownTime);
+    });
+    server.close();
+  });  
+});
