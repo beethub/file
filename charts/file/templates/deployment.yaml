@@ -30,6 +30,21 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         env:
+        - name: BUCKET
+          valueFrom:
+            secretKeyRef:
+              name: file
+              key: bucket
+        - name: SPACES_KEY
+          valueFrom:
+            secretKeyRef:
+              name: file
+              key: space-key
+        - name: SPACES_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: file
+              key: space-secret
 {{- range $pkey, $pval := .Values.env }}
         - name: {{ $pkey }}
           value: {{ quote $pval }}
