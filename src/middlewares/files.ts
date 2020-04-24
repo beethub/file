@@ -3,11 +3,6 @@ import { v4 } from "uuid";
 
 class Files {
 
-  static formatter = new Intl.DateTimeFormat("es-mx", {
-    month: "numeric", 
-    year: "numeric"
-  })
-
   static tenant = (req: Request, res: Response, next : NextFunction) => {
     req.tenant = req.params.account;
     next();
