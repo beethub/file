@@ -4,7 +4,7 @@ import { v4 } from "uuid";
 class Files {
 
   static formatter = new Intl.DateTimeFormat("es-mx", {
-    month: "numeric",
+    month: "numeric", 
     year: "numeric"
   })
 
@@ -14,7 +14,7 @@ class Files {
   }
 
   static generateKeyFIle = (req: Request, res: Response, next : NextFunction) => {
-    req.fileKey = `${Files.formatter.format(new Date)}/${v4()}`
+    req.fileKey = `${new Date().toISOString().slice(0,7)}/${v4()}`
     next();
   }
 
