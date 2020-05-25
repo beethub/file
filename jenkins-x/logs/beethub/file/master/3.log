@@ -1,0 +1,104 @@
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-2mv2h[0m
+{"level":"info","ts":1590441110.45334,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1590441110.4537454,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-h7rjd[0m
+{"level":"info","ts":1590441113.001454,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1590441113.0036397,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-beethub-file-master-release-6xsct-mtb8r[0m
+{"level":"info","ts":1590441125.1416795,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1590441125.477609,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/beethub/file.git @ v0.0.2 in path /workspace/source"}
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a42337de446d54d55021627e733edf45985af94b
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npmrc[0m
+Command "credential" is deprecated, it will be removed on Jun 1 2020.  This is replaced by Tekton's mounted secrets
+WARNING: failed to find Secret npm-token in namespace **
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-install[0m
+
+> nodemon@2.0.3 postinstall /workspace/source/node_modules/nodemon
+> node bin/postinstall || exit 0
+
+[32mLove nodemon? You can now support the project via the open collective:[22m[39m
+ > [96m[1mhttps://opencollective.com/nodemon/donate[0m
+
+npm WARN file@1.0.0 No repository field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.1.3 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 228 packages from 286 contributors and audited 230 packages in 10.401s
+found 0 vulnerabilities
+
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-build-npm-test[0m
+
+> file@1.0.0 test /workspace/source
+> echo "Error: no test specified" && exit 0
+
+Error: no test specified
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-build-transpile-ts-to-js[0m
+
+> file@1.0.0 build /workspace/source
+> tsc
+
+
+Showing logs for build [32mbeethub-file-master-release-6xsct-3-cxfbm[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+[36mINFO[0m[0000] Downloading base image node:10-slim          
+2020/05/25 21:12:40 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0000] Error while retrieving image from cache: getting file info: stat /workspace/sha256:9dbec6887681e5f3d86d2a49580dc6b7d2e611003b53c88f2ba865052d5e5aba: no such file or directory 
+[36mINFO[0m[0000] Downloading base image node:10-slim          
+2020/05/25 21:12:40 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0000] cmd: EXPOSE                                  
+[36mINFO[0m[0000] Adding exposed port: 4000/tcp                
+[36mINFO[0m[0001] Using files from context: [/workspace/source/package-lock.json /workspace/source/package.json] 
+[36mINFO[0m[0001] Checking for cached layer docker.io/todo/cache:6a3bfc2a3421027cb55e565ab08f7d251853b184aa5d1b5105ee8ea0fcd9506f... 
+2020/05/25 21:12:41 No matching credentials were found, falling back on anonymous
+[36mINFO[0m[0001] No cached layer found for cmd RUN npm install --production 
+[36mINFO[0m[0001] Unpacking rootfs as cmd RUN npm install --production requires it. 
+[36mINFO[0m[0005] Taking snapshot of full filesystem...        
+[36mINFO[0m[0007] ENV PORT 4000                                
+[36mINFO[0m[0007] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0007] EXPOSE 4000                                  
+[36mINFO[0m[0007] cmd: EXPOSE                                  
+[36mINFO[0m[0007] Adding exposed port: 4000/tcp                
+[36mINFO[0m[0007] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0007] WORKDIR /usr/src/app                         
+[36mINFO[0m[0007] cmd: workdir                                 
+[36mINFO[0m[0007] Changed working directory to /usr/src/app    
+[36mINFO[0m[0007] Creating directory /usr/src/app              
+[36mINFO[0m[0007] Taking snapshot of files...                  
+[36mINFO[0m[0007] ENV  NODE_ENV production                     
+[36mINFO[0m[0007] No files changed in this command, skipping snapshotting. 
+[36mINFO[0m[0007] Using files from context: [/workspace/source/package-lock.json /workspace/source/package.json] 
+[36mINFO[0m[0007] COPY package-lock.json package.json ./       
+[36mINFO[0m[0007] Taking snapshot of files...                  
+[36mINFO[0m[0007] RUN npm install --production                 
+[36mINFO[0m[0007] cmd: /bin/sh                                 
+[36mINFO[0m[0007] args: [-c npm install --production]          
+npm WARN file@1.0.0 No repository field.
+
+added 91 packages from 111 contributors and audited 230 packages in 4.783s
+found 0 vulnerabilities
+
+[36mINFO[0m[0013] Taking snapshot of full filesystem...        
+[36mINFO[0m[0017] Pushing layer docker.io/todo/cache:6a3bfc2a3421027cb55e565ab08f7d251853b184aa5d1b5105ee8ea0fcd9506f to cache now 
+[36mINFO[0m[0017] Using files from context: [/workspace/source/dist] 
+[36mINFO[0m[0017] COPY dist/ .                                 
+[36mINFO[0m[0017] Taking snapshot of files...                  
+[36mINFO[0m[0017] CMD ["node", "server.js"]                    
+[36mINFO[0m[0017] No files changed in this command, skipping snapshotting. 
+[33mWARN[0m[0017] error uploading layer to cache: failed to push to destination index.docker.io/todo/cache:6a3bfc2a3421027cb55e565ab08f7d251853b184aa5d1b5105ee8ea0fcd9506f: unsupported status code 401; body:  
+error pushing image: failed to push to destination index.docker.io/beethub/file:0.0.2: UNAUTHORIZED: authentication required; [map[Type:repository Class: Name:beethub/file Action:pull] map[Type:repository Class: Name:beethub/file Action:push]]
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
